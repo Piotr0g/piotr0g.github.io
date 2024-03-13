@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/x-icon" href="zdjecia/favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homebrew installer</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Prevent scrolling */
+        background-color: white; /* Default background color */
+    }
+    #fullScreenMessage {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        border: 2px solid #000;
+    }
+</style>
+</head>
+<body>
+<center><h1>Warning! do not press Escape or f11 button during process or it wont work</h1></center>
+    <div id="fullScreenMessage">
+        <p>click the button to start exploit.</p>
+        <button onclick="startExploit()">Run the exploit...</button>
+    </div>
+
+    <!-- Your website content goes here -->
+
+<script>
+// Function to request full screen
+function requestFullscreen() {
+    var elem = document.documentElement; // Fullscreen element
+
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+        elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+        elem.msRequestFullscreen();
+    }
+}
+
+// Function to start the exploit (replace website content with a black background and enter fullscreen mode)
+function startExploit() {
+    var body = document.body;
+    var fullScreenMessage = document.getElementById("fullScreenMessage");
+    body.style.backgroundColor = "black"; // Change background color to black
+    fullScreenMessage.innerHTML = ""; // Clear the content inside fullScreenMessage
+    requestFullscreen(); // Request fullscreen mode
+    // Redirect to index2.html
+    setTimeout(function() {
+        window.location.href = "index2.html";
+    }, 1000); // Redirect after 1 second
+}
+
+// Hide the full-screen message once full screen is entered
+document.addEventListener("fullscreenchange", function () {
+    if (isFullScreen()) {
+        document.getElementById("fullScreenMessage").style.display = "none";
+    } else {
+        document.getElementById("fullScreenMessage").style.display = "block";
+    }
+});
+
+// Function to handle keydown events
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape" || (event.key === "F11" && event.keyCode === 122)) {
+        var body = document.body;
+        var fullScreenMessage = document.getElementById("fullScreenMessage");
+        body.style.backgroundColor = "white"; // Change background color to white
+        fullScreenMessage.innerHTML = "<p>It seems you pressed Escape or F11. You need to refresh the page so you can run exploit again.</p>"; // Show the text
+    }
+});
+</script>
+</body>
+</html>
+

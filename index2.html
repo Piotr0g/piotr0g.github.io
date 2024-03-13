@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homebrew Installer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrolling */
+            background-color: black; /* Default background color */
+            color: white; /* Default font color */
+            font-weight: bold; /* Default font weight */
+        }
+        #message {
+            background-color: white;
+            color: black;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="message">Checking if homebrew can be installed, please wait...</div>
+
+    <div id="textDisplay">
+        <p id="text1">Checking if homebrew channel can be installed... [<span style="color: green;">yes</span>]</p>
+        <p id="text2" style="display: none;">Can wii pilot mode be activated... [<span style="color: green;">yes</span>]</p>
+        <p id="text3" style="display: none;">Can exploit run... [<span style="color: green;">yes</span>]</p>
+        <p id="text4" style="display: none;">Can mods be installed... [<span style="color: green;">yes</span>]</p>
+        <p id="text5" style="display: none;">Is this website fake... [<span style="color: green;">yes</span>]</p>
+    </div>
+
+    <script>
+        var texts = ["text1", "text2", "text3", "text4", "text5"];
+        var currentIndex = 0;
+
+        function showNextText() {
+            if (currentIndex < texts.length) {
+                var currentText = document.getElementById(texts[currentIndex]);
+                currentText.style.display = "block";
+                currentIndex++;
+            } else {
+                clearInterval(interval); // Stop interval after all texts are displayed
+                setTimeout(function() {
+                    window.location.href = "index3.html"; // Redirect to index3.html after 1 second
+                }, 1000);
+            }
+        }
+
+        // Show each text after a delay of 5 seconds
+        var interval = setInterval(showNextText, 5000);
+    </script>
+</body>
+</html>
+
