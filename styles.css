@@ -1,6 +1,4 @@
-body {
-    margin: 0;
-    padding: 0;
+body, html {
     cursor: none; /* Hide the default cursor */
 }
 
@@ -10,10 +8,11 @@ body {
 
 .custom-cursor {
     position: absolute;
-    width: 100px; /* Set the width of the cursor */
-    height: 100px; /* Set the height of the cursor */
+    width: 90px; /* Set the width of the cursor */
+    height: 90px; /* Set the height of the cursor */
     background-image: url('cursor.png'); /* Replace 'cursor.png' with your custom cursor image */
     background-size: cover;
     pointer-events: none; /* Make the cursor not clickable */
     z-index: 9999; /* Set a high z-index to make sure it's on top of other elements */
 }
+
