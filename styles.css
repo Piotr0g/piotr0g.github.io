@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    padding: 0;
+    cursor: none; /* Hide the default cursor */
+}
+
+.content {
+    height: 1000px; /* Just for demonstration purposes */
+}
+
+.custom-cursor {
+    position: absolute;
+    width: 30px; /* Set the width of the cursor */
+    height: 30px; /* Set the height of the cursor */
+    background-image: url('cursor.png'); /* Replace 'cursor.png' with your custom cursor image */
+    background-size: cover;
+    pointer-events: none; /* Make the cursor not clickable */
+    z-index: 9999; /* Set a high z-index to make sure it's on top of other elements */
+}
+
