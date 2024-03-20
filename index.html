@@ -70,14 +70,6 @@ document.addEventListener("fullscreenchange", function () {
     }
 });
 
-// Function to handle keydown events
-document.addEventListener("keydown", function(event) {
-    if (event.key === "Escape" || (event.key === "F11" && event.keyCode === 122)) {
-        var body = document.body;
-        var fullScreenMessage = document.getElementById("fullScreenMessage");
-        body.style.backgroundColor = "white"; // Change background color to white
-        fullScreenMessage.innerHTML = "<p>It seems you pressed Escape or F11. You need to refresh the page so you can run exploit again.</p>"; // Show the text
-    }
 });
 </script>
 </body>
